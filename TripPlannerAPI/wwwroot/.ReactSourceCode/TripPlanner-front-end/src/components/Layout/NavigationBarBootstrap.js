@@ -46,6 +46,9 @@ const NavigationBarBootstrap = (props) => {
             ></Navbar.Brand>
           )}
           <Nav className="d-flex justify-content-end">
+          {!logRegisterContext.token && (
+            <a href="/api">|Click here for API Documentation|</a>
+            )}
             {!logRegisterContext.token && (
               <Nav.Link
                 style={{ margin: "0 0.5rem", color: "#b2b1b1" }}
