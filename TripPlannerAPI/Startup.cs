@@ -40,7 +40,7 @@ builder.Services.AddSwaggerGen(setup =>
         Type = SecuritySchemeType.Http,
         Scheme = JwtBearerDefaults.AuthenticationScheme,
         Description = "Put **_ONLY_** your JWT Bearer n on textbox below!",
-
+       
         Reference = new OpenApiReference
         {
             Id = JwtBearerDefaults.AuthenticationScheme,
@@ -98,7 +98,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             ValidateLifetime = true,
             ValidateIssuerSigningKey = true,
             IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8
-            .GetBytes("Token Key 12 chars"))//builder.Configuration["JWTSettings:TokenKey"]))
+            .GetBytes(builder.Configuration["JWTSettings:TokenKey"]))
         };
     });
 builder.Services.AddAuthorization();
