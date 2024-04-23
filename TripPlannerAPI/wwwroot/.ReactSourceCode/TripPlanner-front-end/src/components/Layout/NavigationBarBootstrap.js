@@ -114,6 +114,18 @@ const NavigationBarBootstrap = (props) => {
                   Create trip
                 </Nav.Link>
               )}
+              {(!logRegisterContext.isAdmin ||
+                    logRegisterContext.isAdmin === "false") && (
+                    <NavDropdown.Item as={NavLink} to="/favorite-trips">
+                      Favorited trips
+                    </NavDropdown.Item>
+                  )}
+                  {(!logRegisterContext.isAdmin ||
+                    logRegisterContext.isAdmin === "false") && (
+                    <NavDropdown.Item as={NavLink} to="/leaderboard">
+                      Leaderboards
+                    </NavDropdown.Item>
+                  )}
             {logRegisterContext.token &&
               (!logRegisterContext.isAdmin ||
                 logRegisterContext.isAdmin === "false") && (
@@ -125,18 +137,6 @@ const NavigationBarBootstrap = (props) => {
               (!logRegisterContext.isAdmin ||
                 logRegisterContext.isAdmin === "false") && (
                 <NavDropdown style={{zIndex: 10000}}>
-                  {(!logRegisterContext.isAdmin ||
-                    logRegisterContext.isAdmin === "false") && (
-                    <NavDropdown.Item as={NavLink} to="/favorite-trips">
-                      Favorite trips
-                    </NavDropdown.Item>
-                  )}
-                  {(!logRegisterContext.isAdmin ||
-                    logRegisterContext.isAdmin === "false") && (
-                    <NavDropdown.Item as={NavLink} to="/leaderboard">
-                      Leaderboards
-                    </NavDropdown.Item>
-                  )}
                   {(!logRegisterContext.isAdmin ||
                     logRegisterContext.isAdmin === "false") && (
                     <NavDropdown.Item as={NavLink} to="/profile">
