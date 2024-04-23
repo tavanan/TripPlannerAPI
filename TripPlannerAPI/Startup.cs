@@ -140,7 +140,10 @@ using (var scope = app.Services.CreateScope())
     var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
     //db.Database.EnsureDeleted();
     //db.Database.EnsureCreated();
-    await db.Database.MigrateAsync();
+    bool exists = await db.Database.CanConnectAsync();
+    bool notExists = !exists;
+    if(notExists)
+        await db.Database.MigrateAsync();
 
 }
 //app.UseHttpsRedirection();
